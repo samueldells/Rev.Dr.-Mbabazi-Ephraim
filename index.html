@@ -1,1070 +1,1595 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rev. Dr. Ephraim Mbabazi - Clergyman, Scholar, Community Leader</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    <style>
+        :root {
+            --primary: #4a6fa5;
+            --secondary: #166088;
+            --accent: #4fc3a1;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --transition: all 0.5s ease;
+        }
 
-    <head>
-        <meta charset="utf-8">
-        <title>Rev.Dr Mbabazi Ephraim</title>
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta name="google-site-verification" content="LuNXsAy8jApEPoakbJ75CbdKVaTNhN4wTEiYmsohVTA" />
-        <meta content="" name="keywords">
-        <meta content="" name="description">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-        <!-- Google Web Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Edu+TAS+Beginner:wght@400..700&family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
 
-        <!-- Icon Font Stylesheet -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
 
-        <!-- Libraries Stylesheet -->
-        <link rel="stylesheet" href="lib/animate/animate.min.css"/>
-        <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+        header.scrolled {
+            background-color: rgba(255, 255, 255, 0.98);
+            padding: 10px 0;
+        }
 
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-        <!-- Customized Bootstrap Stylesheet -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
 
-        <!-- Template Stylesheet -->
-        <link href="css/style.css" rel="stylesheet">
-    </head>
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
 
-    <body>
+        .logo span {
+            color: var(--secondary);
+        }
 
-        <!-- Spinner Start -->
-        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
-        </div>
-        <!-- Spinner End -->
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
 
+        .nav-links li {
+            margin-left: 30px;
+        }
 
-        <!-- Navbar Start -->
-        <div class="container-fluid nav-section border-0">
-            <nav class="navbar navbar-light">
-                <div class="navbar-nav flex-column">
-                    <a href="#pigraHome" class="nav-item nav-link active"><span class="fa fa-home"></span> Home</a>
-                    <a href="#pigraAbout" class="nav-item nav-link"><span class="far fa-address-card"></span> About</a>
-                    <a href="#pigraService" class="nav-item nav-link"><span class="fab fa-servicestack"></span> Service</a>
-                    <a href="#pigraBlog" class="nav-item nav-link"><span class="fa fa-blog"></span> Blog</a>
-                    <a href="#pigraContact" class="nav-item nav-link"><span class="fas fa-address-book"></span> Contact</a>
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            bottom: -5px;
+            left: 0;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('banner1.png') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards 0.5s;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .hero .title {
+            display: inline-block;
+            background-color: rgba(74, 111, 165, 0.8);
+            padding: 5px 15px;
+            border-radius: 30px;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background-color: #3da58a;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+            margin-left: 15px;
+        }
+
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--primary);
+        }
+
+        /* About Section */
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .about-img {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 1s ease;
+        }
+
+        .about-img.animated {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .about-img img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 1s ease;
+        }
+
+        .about-text.animated {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+        }
+
+        .highlight {
+            background-color: rgba(79, 195, 161, 0.2);
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+
+        /* Family Section */
+        .family {
+            background-color: #f1f5f9;
+        }
+
+        .family-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .family-img {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+
+        .family-img img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .family-text {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+
+        .family-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        /* Education Section */
+        .education {
+            background-color: white;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: var(--accent);;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+        }
+
+        .timeline-item.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-content h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .timeline-content p {
+            margin-bottom: 5px;
+            font-size: 0.95rem;
+        }
+
+        .timeline-date {
+            color: var(--accent);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .institution {
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -12px;
+            background-color: var(--accent);
+            border: 2px solid var(--primary);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -16px;
+        }
+
+        /* Ministry Section */
+        .ministry {
+            background-color: #f1f5f9;
+        }
+
+        .ministry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .ministry-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .ministry-card.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .ministry-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .ministry-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .ministry-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .ministry-card:hover .ministry-img img {
+            transform: scale(1.1);
+        }
+
+        .ministry-content {
+            padding: 25px;
+        }
+
+        .ministry-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .ministry-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .ministry-content p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+
+        /* Community Work Section */
+        .community {
+            background-color: white;
+        }
+
+        .community-item {
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+        }
+
+        .community-item.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .community-item h3 {
+            font-size: 1.6rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .community-item h3:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent);
+            bottom: 0;
+            left: 0;
+        }
+
+        .community-item p {
+            margin-bottom: 15px;
+        }
+
+        /* Books Section */
+        .books {
+            background-color: #f1f5f9;
+        }
+
+        .book-slider {
+            position: relative;
+            padding: 0 50px;
+        }
+
+        .book-slide {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin: 0 15px;
+            text-align: center;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 1s ease;
+        }
+
+        .book-slide.animated {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .book-cover {
+            height: 300px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .book-cover img {
+            height: 100%;
+            object-fit: contain;
+            border-radius: 5px;
+        }
+
+        .book-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .book-info p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .slick-prev, .slick-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border-radius: 50%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .slick-prev {
+            left: 0;
+        }
+
+        .slick-next {
+            right: 0;
+        }
+
+        .slick-prev:hover, .slick-next:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        /* Scriptures Section */
+        .scriptures {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .scripture-slider {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .scripture-slide {
+            text-align: center;
+            padding: 30px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease;
+        }
+
+        .scripture-slide.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .scripture-text {
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .scripture-reference {
+            font-size: 1.2rem;
+            color: var(--accent);
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .contact-text h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: var(--primary);
+        }
+
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            border-color: var(--accent);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(79, 195, 161, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 250px;
+            padding: 0 20px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        .footer-col p {
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+
+        .social-links {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin-right: 10px;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: white;
+            opacity: 0.8;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--accent);
+            padding-left: 5px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item::after {
+                left: 18px;
+            }
+            
+            .timeline-item:nth-child(even)::after {
+                left: 18px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: var(--transition);
+                z-index: 999;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .btn {
+                padding: 10px 20px;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .scripture-text {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .title {
+                font-size: 0.9rem;
+            }
+
+            .btn-group {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 15px;
+            }
+            
+            .ministry-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">Rev. Dr. <span>Mbabazi</span></a>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
                 </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#family">Family</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#ministry">Ministry</a></li>
+                    <li><a href="#community">Community Work</a></li>
+                    <li><a href="#books">Publications</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
             </nav>
         </div>
-        <!-- Navbar End -->
+    </header>
 
-        <!-- Header Start -->
-        <div class="container-fluid" id="pigraHome">
-            <div class="container">
-                <div class="row g-0">
-                    <div class="col-12 col-lg-3">
-                        <div class="header-content bg-dark h-100 pt-6 pe-6 pb-6">
-                            <a href="index.html" class="navbar-brand d-inline-flex pb-5 wow fadeInUp" data-wow-delay="0.1s">
-                                <!-- <h1 class="display-6 text-white mb-0">Pigra</h1> -->
-                            </a>
-                            <div class="text-start d-flex flex-column justify-content-center wow fadeInUp" data-wow-delay="0.3s">
-                                <!-- <p class="text-white sub-title">👋 Hello I'm Mezbah</p> -->
-                                <h1 class="display-6 text-white mb-0">Rev.Dr Mbabazi Ephraim</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-9">
-                        <div class="header-img d-flex h-100 pt-6 ps-6 pb-6">
-                            <div class="row g-5">
-                                <div class="col-xl-6 wow fadeInUp" data-wow-delay="0.1s">
-                                    <div class="bg-light p-4" style="border-radius: 68% 32% 100% 0% / 0% 75% 25% 100%;">
-                                        <img src="img/header-img.jpg" class="img-fluid w-100" style="border-radius: 68% 32% 100% 0% / 0% 75% 25% 100%;" alt="Image">
-                                    </div>
-                                </div>
-                                <div class="col-xl-6 wow fadeInUp" data-wow-delay="0.3s">
-                                    <h1 class="display-6 mb-4">Who is Rev.Dr Mbabazi Ephraim</h1>
-                                    <p class="mb-4">The Rev. Dr. Ephraim Mbabazi is a priest of the church of Uganda (Anglican) born in 1952 at Bihanga - Rwaramba in Kisoro District of southern Uganda and is married to priscilla.
-                                    </p>
-                                    <div class="d-flex align-items-center mb-2">
-                                        <i class="fas fa-map-marker-alt text-primary me-3"></i>
-                                        <p class="text-dark mb-0">Kisoro, Uganda</p>
-                                    </div>
-                                    <div class="d-flex align-items-center mb-2">
-                                        <i class="fas fa-envelope text-primary me-3"></i>
-                                        <p class="text-dark mb-0">revmbabaziephra@yahoo.co.uk</p>
-                                    </div>
-                                    <div class="d-flex align-items-center mb-2">
-                                        <i class="fa fa-phone-alt text-primary me-3"></i>
-                                        <p class="text-dark mb-0">(+256) 772638132</p>
-                                    </div>
-                                    <div class="d-flex align-items-center mb-4">
-                                        <i class="fab fa-firefox-browser text-primary me-3"></i>
-                                        <p class="text-dark mb-0">revmbabaziephra.com</p>
-                                    </div>
-                                    <div class="d-flex">
-                                        <a class="btn btn-primary btn-sm-square me-3" href="#"><i class="fab fa-facebook-f text-white"></i></a>
-                                        <a class="btn btn-primary btn-sm-square me-3" href="#"><i class="fab fa-twitter text-white"></i></a>
-                                        <a class="btn btn-primary btn-sm-square me-3" href="#"><i class="fab fa-instagram text-white"></i></a>
-                                        <a class="btn btn-primary btn-sm-square me-0" href="#"><i class="fab fa-linkedin-in text-white"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <span class="title">Clergyman | Scholar | Community Leader</span>
+                <h1>Rev. Dr. Ephraim Mbabazi</h1>
+                <p>PhD, DD, MTh, BCLD - 30 years of dedicated church ministry and community service</p>
+                <div class="btn-group">
+                    <a href="#ministry" class="btn">View Ministry</a>
+                    <a href="#contact" class="btn btn-outline">Get in Touch</a>
                 </div>
             </div>
         </div>
-        <!-- Header End -->
+    </section>
 
-
-        <!-- About Start -->
-        <div class="container-fluid" id="pigraAbout">
-            <div class="container">
-                <div class="row g-0">
-                    <div class="col-12 col-lg-3">
-                        <div class="about-header bg-dark h-100 pt-6 pe-6 pb-6">
-                            <div class="text-start d-flex flex-column justify-content-center wow fadeInUp" data-wow-delay="0.1s">
-                                <!-- <p class="text-white sub-title">About Me</p> -->
-                                <h1 class="display-6 text-white mb-0">Bio Data</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-9">
-                        <div class="about-content h-100 pt-6 ps-6 pb-6">
-                            <div class="row g-5">
-                                <!-- <div class="col-xl-5">
-                                    <div class="about-img bg-light p-4 wow fadeInUp" data-wow-delay="0.1s">
-                                        <img src="img/about.jpg" class="img-fluid w-100" alt="Image">
-                                        <div class="sosial-icon">
-                                            <a class="btn btn-primary btn-sm-square mb-3" href="#"><i class="fab fa-facebook-f text-white"></i></a>
-                                            <a class="btn btn-primary btn-sm-square mb-3" href="#"><i class="fab fa-twitter text-white"></i></a>
-                                            <a class="btn btn-primary btn-sm-square mb-3" href="#"><i class="fab fa-instagram text-white"></i></a>
-                                            <a class="btn btn-primary btn-sm-square mb-0" href="#"><i class="fab fa-linkedin-in text-white"></i></a>
-                                        </div>
-                                    </div>
-                                </div> -->
-                                <div class="col-xl-12 wow fadeInUp" data-wow-delay="0.3s">
-                                    <h4 class="mb-4">About Rev. Dr. Mbabazi Ephraim</h4><hr>
-                                   <!--  <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam repellat, sint magni incidunt voluptatum eveniet numquam vel facilis sit similique a mollitia et dolorum aperiam repellendus ipsum, quidem nemo eligendi!
-                                    </p> -->
-                                    <div class="row g-4 mb-4">
-                                        <div class="col-6">
-                                            <p><strong class="fw-bold text-dark">Sex :</strong> Male</p>
-                                            <p><strong class="fw-bold text-dark">Nationality :</strong> Uganda</p>
-                                            <p ><strong class="fw-bold text-dark">Date of Birth :</strong> 20th November, 1952</p>
-                                            <p ><strong class="fw-bold text-dark">Marital Status:</strong> Married</p>
-                                            <p><strong class="fw-bold text-dark">Place of Birth :</strong> Bihanga-Rwaramba</p>
-                                        </div>
-                                        <div class="col-6">
-                                            <!-- <p><strong class="fw-bold text-dark">Languages spoken :</strong> New York, USA</p> -->
-                                            <p><strong class="fw-bold text-dark">Telephone :</strong> +256 772638132</p>
-                                            <p ><strong class="fw-bold text-dark">Contact Address :</strong> PET-UGANDA P.O BOX 4, KISORO-UGANDA</p>
-                                            <p><strong class="fw-bold text-dark">Email :</strong> revmbabaziephra@yahoo.co.uk</p>
-                                            <p ><strong class="fw-bold text-dark">Language spoken :</strong> English, Kiswahili and Rufumbira</p>
-                                        </div>
-                                       <!--  <div class="col-4">
-                                            
-                                            
-                                        </div> -->
-
-                                    </div>
-                                    <a href="#" class="btn btn-primary py-2 px-4"> <i class="fas fa-download me-2"></i>Download My CV</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Dr. Mbabazi</h2>
+                <p>The journey of faith, service, and scholarship</p>
+            </div>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="rev.png" alt="Rev Dr. Mbabazi">
+                </div>
+                <div class="about-text">
+                    <h3>Biography & Ministry Journey</h3>
+                    <p>The Rev. Dr. Ephraim Mbabazi was born on <span class="highlight">20th November 1952</span> to Paul and Rose Munyambabazi, peasant farmers of Bihanga-Rwaramba in the Kisoro District of southwestern Uganda. His name <span class="highlight">Mbabazi</span> literally means <span class="highlight">mercy or grace</span>.</p>
+                    
+                    <p>Dr. Mbabazi is the eighth in a family of 12 children (6 boys and 6 girls), where getting basic needs of life was always a challenge. This humble beginning shaped his lifelong commitment to serving the underprivileged.</p>
+                    
+                    <p>From <span class="highlight">1964-1974</span>, Rev. Dr. Mbabazi completed both his primary and secondary education at Seseme and Mutolere Secondary schools. He taught at both Gitovu and Rwaramba primary schools from <span class="highlight">1975-1978</span> before pursuing technical training.</p>
+                    
+                    <p>His theological journey began in earnest when he joined <span class="highlight">Bishop Barham Divinity College</span> for an ordination course from <span class="highlight">1985-87</span>. He was ordained a deacon on <span class="highlight">29th November 1987</span> and a priest on <span class="highlight">18th December 1988</span> in the Church of Uganda at St. Peter's Cathedral, Rugarama, Kabale.</p>
+                    
+                    <p>Dr. Mbabazi's guiding scripture is <span class="highlight">"Love one another" (John 15:17)</span>, and he lives by the principle: <span class="highlight">"It is better to risk loss of truth than chance of error."</span></p>
                 </div>
             </div>
         </div>
-        <!-- About End -->
+    </section>
 
-
-        <!-- Education Start -->
-        <div class="container-fluid">
-    <div class="container">
-        <div class="row g-0">
-            <div class="col-lg-3">
-                <div class="education-header bg-dark h-100 pt-6 pe-6 pb-6">
-                    <div class="text-start d-flex flex-column justify-content-center wow fadeInUp" data-wow-delay="0.1s">
-                        <h1 class="display-6 text-white mb-0">Education</h1>
-                    </div>
-                </div>
+    <!-- Family Section -->
+    <section class="section family" id="family">
+        <div class="container">
+            <div class="section-title">
+                <h2>Family Life</h2>
+                <p>The personal foundation of ministry</p>
             </div>
-            <div class="col-lg-9">
-                <div class="education-content h-100 pt-6 ps-6 pb-6">
-                    <div class="row g-4 scrollable-education">
-                        <div class="col-12">
-                            <div class="education-item rounded p-2 h-100 wow fadeInUp" data-wow-delay="0.1s">
-                                <div class="d-flex align-items-center mb-3">
-                                    <p class="fs-5 mb-0 me-4">Rwaramba and Seseme Primary school</p>
-                                    <div>
-                                        <span class="fa fa-calendar me-1"></span> 1964 - 1970
-                                    </div>
-                                </div>
-                                <h4 class="mb-3">Primary Leaving Certificate Grade 1</h4>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="education-item rounded p-2 h-100 wow fadeInUp" data-wow-delay="0.3s">
-                                <div class="d-flex align-items-center mb-3">
-                                    <p class="fs-5 mb-0 me-4">Mutolere Secondary School</p>
-                                    <div>
-                                        <span class="fa fa-calendar me-1"></span> 1971 - 1974
-                                    </div>
-                                </div>
-                                <h4 class="mb-3">School Certificate (O-level)</h4>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="education-item rounded p-2 h-100 wow fadeInUp" data-wow-delay="0.5s">
-                                <div class="d-flex align-items-center mb-3">
-                                    <p class="fs-5 mb-0 me-4">Uganda Technica Collage Kyambogo</p>
-                                    <div>
-                                        <span class="fa fa-calendar me-1"></span> 1979 - 1980
-                                    </div>
-                                </div>
-                                <h4 class="mb-3">Certificate In Telecommunication</h4>
-                            </div>
-                        </div>
-                        <!-- Scrollable content starts here -->
-                        <div class="scrollable-content">
-                            <div class="col-12">
-                                <div class="education-item rounded p-2 h-100 wow fadeInUp" data-wow-delay="0.5s">
-                                    <div class="d-flex align-items-center mb-3">
-                                        <p class="fs-5 mb-0 me-4">Bishop Trucker Theological College</p>
-                                        <div>
-                                            <span class="fa fa-calendar me-1"></span> 1985-1987
-                                        </div>
-                                    </div>
-                                    <h4 class="mb-3">Provisional Certificate in Theological Studies</h4>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="education-item rounded p-2 h-100 wow fadeInUp" data-wow-delay="0.5s">
-                                    <div class="d-flex align-items-center mb-3">
-                                        <p class="fs-5 mb-0 me-4">Bishop Bar ham Divinity College, Kabale-Uganda</p>
-                                        <div>
-                                            <span class="fa fa-calendar me-1"></span> 1987
-                                        </div>
-                                    </div>
-                                    <h4 class="mb-3">General Ordination Certificate</h4>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="education-item rounded p-2 h-100 wow fadeInUp" data-wow-delay="0.5s">
-                                    <div class="d-flex align-items-center mb-3">
-                                        <p class="fs-5 mb-0 me-4">Mutolere Secondary School</p>
-                                        <div>
-                                            <span class="fa fa-calendar me-1"></span> 1990
-                                        </div>
-                                    </div>
-                                    <h4 class="mb-3">Higher Certificate (UACE) A' Level</h4>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="education-item rounded p-2 h-100 wow fadeInUp" data-wow-delay="0.5s">
-                                    <div class="d-flex align-items-center mb-3">
-                                        <p class="fs-5 mb-0 me-4">Bishop Trucker Theological College</p>
-                                        <div>
-                                            <span class="fa fa-calendar me-1"></span> 1991-1994
-                                        </div>
-                                    </div>
-                                    <h4 class="mb-3">Diploma in Theology</h4>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="education-item rounded p-2 h-100 wow fadeInUp" data-wow-delay="0.5s">
-                                    <div class="d-flex align-items-center mb-3">
-                                        <p class="fs-5 mb-0 me-4">College of Professional Management, U.K</p>
-                                        <div>
-                                            <span class="fa fa-calendar me-1"></span> 1993-1994
-                                        </div>
-                                    </div>
-                                    <h4 class="mb-3">Diploma in office Management and Administration</h4>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="education-item rounded p-2 h-100 wow fadeInUp" data-wow-delay="0.5s">
-                                    <div class="d-flex align-items-center mb-3">
-                                        <p class="fs-5 mb-0 me-4">University of Edinburgh, U.K</p>
-                                        <div>
-                                            <span class="fa fa-calendar me-1"></span> 1996-1997
-                                        </div>
-                                    </div>
-                                    <h4 class="mb-3">Masters of Theology</h4>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="education-item rounded p-2 h-100 wow fadeInUp" data-wow-delay="0.5s">
-                                    <div class="d-flex align-items-center mb-3">
-                                        <p class="fs-5 mb-0 me-4">Uganda Christian University</p>
-                                        <div>
-                                            <span class="fa fa-calendar me-1"></span> 2002 - 2005
-                                        </div>
-                                    </div>
-                                    <h4 class="mb-3">Diploma in Community Leadership and Development</h4>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="education-item rounded p-2 h-100 wow fadeInUp" data-wow-delay="0.5s">
-                                    <div class="d-flex align-items-center mb-3">
-                                        <p class="fs-5 mb-0 me-4">Uganda Christian University</p>
-                                        <div>
-                                            <span class="fa fa-calendar me-1"></span> 2005
-                                        </div>
-                                    </div>
-                                    <h4 class="mb-3">Bachelor of Community Leadership and Development</h4>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="education-item rounded p-2 h-100 wow fadeInUp" data-wow-delay="0.5s">
-                                    <div class="d-flex align-items-center mb-3">
-                                        <p class="fs-5 mb-0 me-4">Washington International University, USA.</p>
-                                        <div>
-                                            <span class="fa fa-calendar me-1"></span> 2006 - 2008
-                                        </div>
-                                    </div>
-                                    <h4 class="mb-3">PhD Health Care Management</h4>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="education-item rounded p-2 h-100 wow fadeInUp" data-wow-delay="0.5s">
-                                    <div class="d-flex align-items-center mb-3">
-                                        <p class="fs-5 mb-0 me-4">Makerere University</p>
-                                        <div>
-                                            <span class="fa fa-calendar me-1"></span> 2012
-                                        </div>
-                                    </div>
-                                    <h4 class="mb-3">Certificate in managing private schools</h4>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="education-item rounded p-2 h-100 wow fadeInUp" data-wow-delay="0.5s">
-                                    <div class="d-flex align-items-center mb-3">
-                                        <p class="fs-5 mb-0 me-4">Master's International University of Divinity, USA</p>
-                                        <div>
-                                            <span class="fa fa-calendar me-1"></span> 2014 - 2018
-                                        </div>
-                                    </div>
-                                    <h4 class="mb-3">Doctor of Divinity(DD) Degree.</h4>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
+            <div class="family-content">
+                <div class="family-text">
+                    <h3>Family Background</h3>
+                    <p>Rev. Dr. Mbabazi is married to <span class="highlight">Priscilla</span>, a dedicated homemaker who has supported his ministry throughout the years. Together they are blessed with three children:</p>
+                    <ul style="margin-left: 20px; margin-bottom: 15px;">
+                        <li>Bright</li>
+                        <li>Beatrice</li>
+                        <li>Emmanuel</li>
+                    </ul>
+                    <p>The Mbabazi family exemplifies Christian values and commitment to service. Despite the demands of his extensive ministry and community work, Dr. Mbabazi has always prioritized his family responsibilities.</p>
+                    <p>His upbringing in a large family of twelve children taught him the values of sharing, patience, and caring for others - qualities that have profoundly influenced his pastoral approach and community development work.</p>
+                </div>
+                <div class="family-img">
+                    <img src="as.png">
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    </section>
 
-        <!-- Education End -->
-
-        <!-- Experience Start -->
-        <div class="container-fluid">
-            <div class="container">
-                <div class="row g-0">
-                    <div class="col-lg-3">
-                        <div class="experience-header bg-dark h-100 pt-6 pe-6 pb-6">
-                            <div class="text-start d-flex flex-column justify-content-center wow fadeInUp" data-wow-delay="0.1s">
-                               <!--  <p class="text-white sub-title">Experience</p> -->
-                                <h1 class="display-6 text-white mb-0">Employment Record</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- <div class="col-lg-9">
-                        <div class="experience-content h-100 pt-6 ps-6 pb-6">
-                            <div class="row g-4">
-                                <div class="col-12">
-                                    <div class="experience-item rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.1s">
-                                        <div class="d-flex align-items-center mb-3">
-                                            <p class="fs-5 mb-0 me-4">Historian</p>
-                                            <div>
-                                                <span class="fa fa-calendar me-1"></span> 2017 - 2019
-                                            </div>
-                                        </div>
-                                        <h4 class="mb-3">Seinor UI/UX Desinger</h4>
-                                        <p class="mb-0">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti, a quasi velit sint atque non saepe quaerat ducimus, nobis error cupiditate, nisi repudiandae dignissimos magnam? Dicta ab possimus tempora nobis.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="experience-item rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.3s">
-                                        <div class="d-flex align-items-center mb-3">
-                                            <p class="fs-5 mb-0 me-4">Historian</p>
-                                            <div>
-                                                <span class="fa fa-calendar me-1"></span> 2017 - 2019
-                                            </div>
-                                        </div>
-                                        <h4 class="mb-3">UI/UX Designer</h4>
-                                        <p class="mb-0">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti, a quasi velit sint atque non saepe quaerat ducimus, nobis error cupiditate, nisi repudiandae dignissimos magnam? Dicta ab possimus tempora nobis.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="experience-item rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.5s">
-                                        <div class="d-flex align-items-center mb-3">
-                                            <p class="fs-5 mb-0 me-4">Historian</p>
-                                            <div>
-                                                <span class="fa fa-calendar me-1"></span> 2017 - 2019
-                                            </div>
-                                        </div>
-                                        <h4 class="mb-3">Junior Visual Designer</h4>
-                                        <p class="mb-0">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti, a quasi velit sint atque non saepe quaerat ducimus, nobis error cupiditate, nisi repudiandae dignissimos magnam? Dicta ab possimus tempora nobis.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
-                </div>
+    <!-- Education Section -->
+    <section class="section education" id="education">
+        <div class="container">
+            <div class="section-title">
+                <h2>Education Background</h2>
+                <p>A lifetime of academic achievement and theological training</p>
             </div>
-        </div>
-        <!-- Exparience End -->
-
-
-        <!-- Skills Start -->
-        <!-- <div class="container-fluid">
-            <div class="container">
-                <div class="row g-0">
-                    <div class="col-lg-3">
-                        <div class="skills-header h-100 bg-dark pt-6 pe-6 pb-6">
-                            <div class="text-start d-flex flex-column justify-content-center wow fadeInUp" data-wow-delay="0.1s">
-                                <p class="text-white sub-title">Skills</p>
-                                <h1 class="display-6 text-white mb-0">My expertise skills</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-9">
-                        <div class="skills-content h-100 pt-6 ps-6 pb-6">
-                            <div class="row g-4">
-                                <div class="col-6 col-md-4 col-lg-4 col-xl-3">
-                                    <div class="skills-item text-center rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.1s">
-                                        <div class="text-primary text-center mb-3"><span class="fab fa-wordpress fa-3x"></span></div>
-                                        <div class="counter-counting d-flex justify-content-center">
-                                            <h4 class="display-6" data-toggle="counter-up">98</h4>
-                                            <h4 class="display-6">%</h4>
-                                        </div>
-                                        <p class="mb-0">WordPress</p>
-                                    </div>
-                                </div>
-                                <div class="col-6 col-md-4 col-lg-4 col-xl-3">
-                                    <div class="skills-item text-center rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.3s">
-                                        <div class="text-primary text-center mb-3"><span class="fab fa-figma fa-3x"></span></div>
-                                        <div class="counter-counting d-flex justify-content-center">
-                                            <h4 class="display-6" data-toggle="counter-up">95</h4>
-                                            <h4 class="display-6">%</h4>
-                                        </div>
-                                        <p class="mb-0">Figma</p>
-                                    </div>
-                                </div>
-                                <div class="col-6 col-md-4 col-lg-4 col-xl-3">
-                                    <div class="skills-item text-center rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.5s">
-                                        <div class="text-primary text-center mb-3"><span class="fab fa-sketch fa-3x"></span></div>
-                                        <div class="counter-counting d-flex justify-content-center">
-                                            <h4 class="display-6" data-toggle="counter-up">87</h4>
-                                            <h4 class="display-6">%</h4>
-                                        </div>
-                                        <p class="mb-0">Sketch</p>
-                                    </div>
-                                </div>
-                                <div class="col-6 col-md-4 col-lg-4 col-xl-3">
-                                    <div class="skills-item text-center rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.7s">
-                                        <div class="text-primary text-center mb-3"><span class="fab fa-elementor fa-3x"></span></div>
-                                        <div class="counter-counting d-flex justify-content-center">
-                                            <h4 class="display-6" data-toggle="counter-up">75</h4>
-                                            <h4 class="display-6">%</h4>
-                                        </div>
-                                        <p class="mb-0">Elementor</p>
-                                    </div>
-                                </div>
-                                <div class="col-6 col-md-4 col-lg-4 col-xl-3">
-                                    <div class="skills-item text-center rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.1s">
-                                        <div class="text-primary text-center mb-3"><span class="fab fa-js-square fa-3x"></span></div>
-                                        <div class="counter-counting d-flex justify-content-center">
-                                            <h4 class="display-6" data-toggle="counter-up">67</h4>
-                                            <h4 class="display-6">%</h4>
-                                        </div>
-                                        <p class="mb-0">JavaScript</p>
-                                    </div>
-                                </div>
-                                <div class="col-6 col-md-4 col-lg-4 col-xl-3">
-                                    <div class="skills-item text-center rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.3s">
-                                        <div class="text-primary text-center mb-3"><span class="fab fa-html5 fa-3x"></span></div>
-                                        <div class="counter-counting d-flex justify-content-center">
-                                            <h4 class="display-6" data-toggle="counter-up">98</h4>
-                                            <h4 class="display-6">%</h4>
-                                        </div>
-                                        <p class="mb-0">HTML & CSS</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+            <div class="timeline">
+                <!-- Primary Education -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">1964 - 1970</span>
+                        <h3>Primary Leaving Certificate (Grade 1)</h3>
+                        <p class="institution">Rwaramba and Seseme Primary School</p>
+                        <p>Completed primary education with distinction</p>
                     </div>
                 </div>
-            </div>
-        </div -->>
-        <!-- Skills End -->
-
-
-        <!-- Service Start -->
-        <!-- <div class="container-fluid" id="pigraService">
-            <div class="container">
-                <div class="row g-0">
-                    <div class="col-lg-3">
-                        <div class="service-header h-100 bg-dark pt-6 pe-6 pb-6">
-                            <div class="text-start d-flex flex-column justify-content-center wow fadeInUp" data-wow-delay="0.1s">
-                                <p class="text-white sub-title">My Services</p>
-                                <h1 class="display-6 text-white mb-0">What I do for you</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-9">
-                        <div class="service-content h-100 pt-6 ps-6 pb-6">
-                            <div class="row g-4">
-                                <div class="col-12">
-                                    <div class="service-item p-4 wow fadeInUp" data-wow-delay="0.1s">
-                                        <div class="row g-4 align-items-center">
-                                            <div class="col-xl-2">
-                                                <i class="fas fa-bezier-curve fa-3x"></i>
-                                            </div>
-                                            <div class="col-xl-3">
-                                                <a href="#" class="h4 mb-0">Creative Design</a>
-                                            </div>
-                                            <div class="col-xl-4">
-                                                <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis laboriosam repudiandae
-                                                </p>
-                                            </div>
-                                            <div class="col-xl-3">
-                                                <p><i class="fa fa-check me-2"></i> UI/UX Design</p>
-                                                <p><i class="fa fa-check me-2"></i> Research</p>
-                                                <p class="mb-0"><i class="fa fa-check me-2"></i> Mobile App</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="service-item p-4 wow fadeInUp" data-wow-delay="0.3s">
-                                        <div class="row g-4 align-items-center">
-                                            <div class="col-xl-2">
-                                                <i class="fas fa-laptop-code fa-3x"></i>
-                                            </div>
-                                            <div class="col-xl-3">
-                                                <a href="#" class="h4 mb-0">Web Developm</a>
-                                            </div>
-                                            <div class="col-xl-4">
-                                                <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis laboriosam repudiandae
-                                                </p>
-                                            </div>
-                                            <div class="col-xl-3">
-                                                <p><i class="fa fa-check me-2"></i> UI/UX Design</p>
-                                                <p><i class="fa fa-check me-2"></i> Research</p>
-                                                <p class="mb-0"><i class="fa fa-check me-2"></i> Mobile App</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="service-item p-4 wow fadeInUp" data-wow-delay="0.5s">
-                                        <div class="row g-4 align-items-center">
-                                            <div class="col-xl-2">
-                                                <i class="fab fa-app-store fa-3x"></i>
-                                            </div>
-                                            <div class="col-xl-3">
-                                                <a href="#" class="h4 mb-0">Mobile Application</a>
-                                            </div>
-                                            <div class="col-xl-4">
-                                                <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis laboriosam repudiandae
-                                                </p>
-                                            </div>
-                                            <div class="col-xl-3">
-                                                <p><i class="fa fa-check me-2"></i> UI/UX Design</p>
-                                                <p><i class="fa fa-check me-2"></i> Research</p>
-                                                <p class="mb-0"><i class="fa fa-check me-2"></i> Mobile App</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-        <!-- Service End -->
-
-
-        <!-- Portfolio Start -->
-        <!-- <div class="container-fluid">
-            <div class="container">
-                <div class="row g-0">
-                    <div class="col-lg-3">
-                        <div class="portfolio-header h-100 bg-dark pt-6 pe-6 pb-6">
-                            <div class="text-start d-flex flex-column justify-content-center wow fadeInUp" data-wow-delay="0.1s">
-                                <p class="text-white sub-title">Portfolio</p>
-                                <h1 class="display-6 text-white mb-0">My Recent Works</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-9">
-                        <div class="portfolio-content h-100 pt-6 ps-6 pb-6">
-                            <div class="portfolio-item py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
-                                <div class="row g-4 align-items-center">
-                                    <div class="col-xl-6">
-                                        <h4 class="text-body">Web Design</h4>
-                                        <h1 class="display-6 mb-0">Software Design for ABC Corporation</h1>
-                                    </div>
-                                    <div class="col-9 col-xl-4">
-                                        <div class="portfolio-img">
-                                            <div class="portfolio-img-inner">
-                                                <img src="img/Portfolio-1.jpg" class="img-fluid" alt="Image">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-3 col-xl-2">
-                                        <div class="view-img">
-                                            <a href="img/Portfolio-1.jpg" class="btn btn-primary btn-lg-square"  data-lightbox="Portfolio-1"><i class="fas fa-plus"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="portfolio-item py-5 border-bottom wow fadeInUp" data-wow-delay="0.3s">
-                                <div class="row g-4 align-items-center">
-                                    <div class="col-xl-6">
-                                        <h4 class="text-body">Web Development</h4>
-                                        <h1 class="display-6 mb-0">Website Development for ABC Corporation</h1>
-                                    </div>
-                                    <div class="col-9 col-xl-4">
-                                        <div class="portfolio-img">
-                                            <div class="portfolio-img-inner">
-                                                <img src="img/portfolio-2.jpg" class="img-fluid" alt="Image">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-3 col-xl-2">
-                                        <div class="view-img">
-                                            <a href="img/portfolio-2.jpg" class="btn btn-primary btn-lg-square"  data-lightbox="portfolio-2"><i class="fas fa-plus"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="portfolio-item py-5 wow fadeInUp" data-wow-delay="0.5s">
-                                <div class="row g-4 align-items-center">
-                                    <div class="col-xl-6">
-                                        <h4 class="text-body">Photography</h4>
-                                        <h1 class="display-6 mb-0">Security Analysis for ABC Corporation</h1>
-                                    </div>
-                                    <div class="col-9 col-xl-4">
-                                        <div class="portfolio-img">
-                                            <div class="portfolio-img-inner">
-                                                <img src="img/portfolio-3.jpg" class="img-fluid" alt="Image">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-3 col-xl-2">
-                                        <div class="view-img">
-                                            <a href="img/portfolio-3.jpg" class="btn btn-primary btn-lg-square"  data-lightbox="portfolio-3"><i class="fas fa-plus"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-        <!-- Portfolio End -->
-
-
-        <!-- Blog Start -->
-        <!-- <div class="container-fluid" id="pigraBlog">
-            <div class="container">
-                <div class="row g-0">
-                    <div class="col-lg-3">
-                        <div class="blog-header h-100 bg-dark pt-6 pe-6 pb-6">
-                            <div class="text-start d-flex flex-column justify-content-center wow fadeInUp" data-wow-delay="0.1s">
-                                <p class="text-white sub-title">Blog</p>
-                                <h1 class="display-6 text-white mb-0">Recent Posts</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-9">
-                        <div class="blog-content h-100 pt-6 ps-6 pb-6">
-                            <div class="row g-4">
-                                <div class="col-xl-6">
-                                    <div class="blog-item wow fadeInUp" data-wow-delay="0.1s">
-                                        <div class="row g-4">
-                                            <div class="col-4">
-                                                <div class="blog-item-img bg-dark h-100">
-                                                    <a href="#">
-                                                        <img src="img/blog-1.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;" alt="Image">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="col-8">
-                                                <div class="h-100">
-                                                    <p class="text-body mb-3"><i class="fa fa-calendar-alt me-2"></i> November 12, 2024</p>
-                                                    <a href="#" class="d-inline-block h4 mb-4">Secrets of the Mobile Application</a>
-                                                    <div class="py-2 px-3 bg-light d-flex justify-content-between">
-                                                        <p class="mb-0 text-body">By <a href="#" class="h6">Bernard</a></p>
-                                                        <p class="mb-0 text-body">In <a href="#" class="h6">Design</a></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-6">
-                                    <div class="blog-item wow fadeInUp" data-wow-delay="0.3s">
-                                        <div class="row g-4">
-                                            <div class="col-4">
-                                                <div class="blog-item-img bg-dark h-100">
-                                                    <a href="#">
-                                                        <img src="img/blog-2.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;" alt="Image">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="col-8">
-                                                <div class="h-100">
-                                                    <p class="text-body mb-3"><i class="fa fa-calendar-alt me-2"></i> November 18, 2024</p>
-                                                    <a href="#" class="d-inline-block h4 mb-4">How to Create Quality Figma Design</a>
-                                                    <div class="py-2 px-3 bg-light d-flex justify-content-between">
-                                                        <p class="mb-0 text-body">By <a href="#" class="h6">Walker</a></p>
-                                                        <p class="mb-0 text-body">In <a href="#" class="h6">Media</a></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-6">
-                                    <div class="blog-item wow fadeInUp" data-wow-delay="0.5s">
-                                        <div class="row g-4">
-                                            <div class="col-4">
-                                                <div class="blog-item-img bg-dark h-100">
-                                                    <a href="#">
-                                                        <img src="img/blog-3.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;" alt="Image">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="col-8">
-                                                <div class="h-100">
-                                                    <p class="text-body mb-3"><i class="fa fa-calendar-alt me-2"></i> November 23, 2025</p>
-                                                    <a href="#" class="d-inline-block h4 mb-4">Tutorials for Learning Development</a>
-                                                    <div class="py-2 px-3 bg-light d-flex justify-content-between">
-                                                        <p class="mb-0 text-body">By <a href="#" class="h6">Jacob</a></p>
-                                                        <p class="mb-0 text-body">In <a href="#" class="h6">Lifestyle</a></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-6">
-                                    <div class="blog-item wow fadeInUp" data-wow-delay="0.7s">
-                                        <div class="row g-4">
-                                            <div class="col-4">
-                                                <div class="blog-item-img bg-dark h-100">
-                                                    <a href="#">
-                                                        <img src="img/blog-4.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;" alt="Image">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="col-8">
-                                                <div class="h-100">
-                                                    <p class="text-body mb-3"><i class="fa fa-calendar-alt me-2"></i> November 26, 2025</p>
-                                                    <a href="#" class="d-inline-block h4 mb-4">Tutorials for Learning Development</a>
-                                                    <div class="py-2 px-3 bg-light d-flex justify-content-between">
-                                                        <p class="mb-0 text-body">By <a href="#" class="h6">Perkel</a></p>
-                                                        <p class="mb-0 text-body">In <a href="#" class="h6">Design</a></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12 wow fadeInUp" data-wow-delay="0.9s">
-                                    <div class="blog-btn d-flex justify-content-center">
-                                        <p class="mb-0 me-2">For More Works Visit</p>
-                                        <a href="#" class="btn d-inline-block p-0">Our Blog</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-        <!-- Blog End -->
-
-
-        <!-- Testimonial Start -->
-        <!-- <div class="container-fluid">
-            <div class="container">
-                <div class="row g-0">
-                    <div class="col-lg-3">
-                        <div class="testimonial-header h-100 bg-dark pt-6 pe-6 pb-6">
-                            <div class="text-start d-flex flex-column justify-content-center wow fadeInUp" data-wow-delay="0.1s">
-                                <p class="text-white sub-title">Testimonial</p>
-                                <h1 class="display-6 text-white mb-0">What People Say</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-9">
-                        <div class="testimonial-content h-100 pt-6 ps-6 pb-6">
-                            <div class="testimonial-carousel owl-carousel bg-light wow fadeInUp" data-wow-delay="0.1s">
-                                <div class="testimonial-item" data-dot="<img class='img-fluid' src='img/testimonial-img-1.jpg' alt=''>">
-                                    <div class="row gy-4 gx-2 mb-4">
-                                        <div class="col-sm-6">
-                                            <div class="d-flex justify-content-sm-end">
-                                                <div class="testimonial-inner-img border border-primary border-3 me-4" style="width: 100px; height: 100px;">
-                                                    <img src="img/testimonial-img-1.jpg" class="img-fluid" style="object-fit: cover;" alt="">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div>
-                                                <h5 class="mb-2">John Abraham</h5>
-                                                <p class="mb-0">New York, USA</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="text-sm-center">
-                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores nemo facilis tempora esse explicabo sed! Dignissimos quia ullam pariatur blanditiis sed voluptatum. Totam aut quidem laudantium tempora. Minima, saepe earum!
-                                        </p>
-                                        <div class="d-flex justify-content-sm-center">
-                                            <i class="fas fa-star text-primary"></i>
-                                            <i class="fas fa-star text-primary"></i>
-                                            <i class="fas fa-star text-primary"></i>
-                                            <i class="fas fa-star text-primary"></i>
-                                            <i class="fas fa-star text-primary"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="testimonial-item" data-dot="<img class='img-fluid' src='img/testimonial-img-2.jpg' alt=''>">
-                                    <div class="row gy-4 gx-2 mb-4">
-                                        <div class="col-sm-6">
-                                            <div class="d-flex justify-content-sm-end">
-                                                <div class="testimonial-inner-img border border-primary border-3 me-4" style="width: 100px; height: 100px;">
-                                                    <img src="img/testimonial-img-2.jpg" class="img-fluid" style="object-fit: cover;" alt="">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div>
-                                                <h5 class="mb-2">John Abraham</h5>
-                                                <p class="mb-0">New York, USA</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="text-sm-center">
-                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores nemo facilis tempora esse explicabo sed! Dignissimos quia ullam pariatur blanditiis sed voluptatum. Totam aut quidem laudantium tempora. Minima, saepe earum!
-                                        </p>
-                                        <div class="d-flex justify-content-sm-center">
-                                            <i class="fas fa-star text-primary"></i>
-                                            <i class="fas fa-star text-primary"></i>
-                                            <i class="fas fa-star text-primary"></i>
-                                            <i class="fas fa-star text-primary"></i>
-                                            <i class="fas fa-star text-primary"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="testimonial-item" data-dot="<img class='img-fluid' src='img/testimonial-img-3.jpg' alt=''>">
-                                    <div class="row gy-4 gx-2 mb-4">
-                                        <div class="col-sm-6">
-                                            <div class="d-flex justify-content-sm-end">
-                                                <div class="testimonial-inner-img border border-primary border-3 me-4" style="width: 100px; height: 100px;">
-                                                    <img src="img/testimonial-img-3.jpg" class="img-fluid" style="object-fit: cover;" alt="">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div>
-                                                <h5 class="mb-2">John Abraham</h5>
-                                                <p class="mb-0">New York, USA</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="text-sm-center">
-                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores nemo facilis tempora esse explicabo sed! Dignissimos quia ullam pariatur blanditiis sed voluptatum. Totam aut quidem laudantium tempora. Minima, saepe earum!
-                                        </p>
-                                        <div class="d-flex justify-content-sm-center">
-                                            <i class="fas fa-star text-primary"></i>
-                                            <i class="fas fa-star text-primary"></i>
-                                            <i class="fas fa-star text-primary"></i>
-                                            <i class="fas fa-star text-primary"></i>
-                                            <i class="fas fa-star text-primary"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-        <!-- Testimonial End -->
-
-
-        <!-- Contact Start -->
-        <div class="container-fluid" id="pigraContact">
-            <div class="container">
-                <div class="row g-0">
-                    <div class="col-lg-3">
-                        <div class="contact-header h-100 bg-dark pt-6 pe-6 pb-6">
-                            <div class="text-start d-flex flex-column justify-content-center wow fadeInUp" data-wow-delay="0.1s">
-                                <!-- <p class="text-white sub-title">Contact Me</p> -->
-                                <h1 class="display-6 text-white mb-0">Contact Me</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-9">
-                       <div class="contact-content h-100 pt-6 ps-6 pb-6">
-                            <div class="bg-light p-4">
-                                <div class="row g-5">
-                                    <div class="col-xl-5 wow fadeInUp" data-wow-delay="0.1s">
-                                        <p class="mb-4">Rev. Dr. Ephraim would love to hear from you! Please fill out the form below with your details and your message. He will get back to you as soon as possible.</p>
-
-                                        <div class="d-flex mb-4">
-                                            <div class="btn-xl-square bg-primary text-white me-3">
-                                                <i class="fas fa-map-marker-alt"></i>
-                                            </div>
-                                            <div>
-                                                <h4>Address</h4>
-                                                <p class="mb-0">Kisoro, Uganda</p>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex mb-4">
-                                            <div class="btn-xl-square bg-primary text-white me-3">
-                                                <i class="fas fa-envelope"></i>
-                                            </div>
-                                            <div>
-                                                <h4>Mail Us</h4>
-                                                <p class="mb-0">revmbabaziephra@yahoo.co.uk</p>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex">
-                                            <div class="btn-xl-square bg-primary text-white me-3">
-                                                <i class="fa fa-phone-alt"></i>
-                                            </div>
-                                            <div>
-                                                <h4>Telephone</h4>
-                                                <p class="mb-0">(+256) 772638132</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-7 wow fadeInUp" data-wow-delay="0.3s">
-                                        <div>
-                                            <form>
-                                                <div class="row g-3">
-                                                    <div class="col-lg-12 col-xl-6">
-                                                        <div class="form-floating">
-                                                            <input type="text" class="form-control border-0" id="name" placeholder="Your Name">
-                                                            <label for="name">Your Name</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-12 col-xl-6">
-                                                        <div class="form-floating">
-                                                            <input type="email" class="form-control border-0" id="email" placeholder="Your Email">
-                                                            <label for="email">Your Email</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-12 col-xl-6">
-                                                        <div class="form-floating">
-                                                            <input type="phone" class="form-control border-0" id="phone" placeholder="Phone">
-                                                            <label for="phone">Your Phone</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-12 col-xl-6">
-                                                        <div class="form-floating">
-                                                            <input type="text" class="form-control border-0" id="project" placeholder="Project">
-                                                            <label for="project">Your Project</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <div class="form-floating">
-                                                            <input type="text" class="form-control border-0" id="subject" placeholder="Subject">
-                                                            <label for="subject">Subject</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <div class="form-floating">
-                                                            <textarea class="form-control border-0" placeholder="Leave a message here" id="message" style="height: 120px"></textarea>
-                                                            <label for="message">Message</label>
-                                                        </div>
                 
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <button class="btn btn-primary w-100 py-3">Send Message</button>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 wow fadeInUp" data-wow-delay="0.5s">
-                                        <div class="rounded">
-                                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1741.9681318336854!2d29.705757183912258!3d-1.2827594738696109!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dc3924f48197e9%3A0xf091b1adfa613524!2sKisoro!5e1!3m2!1sen!2sug!4v1736098931712!5m2!1sen!2sug" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                       </div>
+                <!-- O-Level -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">1971 - 1974</span>
+                        <h3>School Certificate (O-level)</h3>
+                        <p class="institution">Mutolere Secondary School</p>
+                        <p>Secondary education foundation</p>
+                    </div>
+                </div>
+                
+                <!-- Technical College -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">1979 - 1980</span>
+                        <h3>Certificate in Telecommunication</h3>
+                        <p class="institution">Uganda Technical College Kyambogo</p>
+                        <p>Three-year telecommunication technician's course</p>
+                    </div>
+                </div>
+                
+                <!-- Theological Studies -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">1985 - 1987</span>
+                        <h3>Provisional Certificate in Theological Studies</h3>
+                        <p class="institution">Bishop Tucker Theological College</p>
+                        <p>Initial theological training</p>
+                    </div>
+                </div>
+                
+                <!-- Ordination Certificate -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">1987</span>
+                        <h3>General Ordination Certificate</h3>
+                        <p class="institution">Bishop Barham Divinity College, Kabale</p>
+                        <p>Preparation for ordained ministry</p>
+                    </div>
+                </div>
+                
+                <!-- A-Level -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">1990</span>
+                        <h3>Higher Certificate (UACE) A' Level</h3>
+                        <p class="institution">Mutolere Secondary School</p>
+                        <p>Advanced secondary education</p>
+                    </div>
+                </div>
+                
+                <!-- Diploma in Theology -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">1991 - 1994</span>
+                        <h3>Diploma in Theology</h3>
+                        <p class="institution">Bishop Tucker Theological College, Mukono</p>
+                        <p>Advanced theological training</p>
+                    </div>
+                </div>
+                
+                <!-- Office Management -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">1993 - 1994</span>
+                        <h3>Diploma in Office Management and Administration</h3>
+                        <p class="institution">College of Professional Management, UK</p>
+                        <p>Completed with merit</p>
+                    </div>
+                </div>
+                
+                <!-- Masters of Theology -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">1996 - 1997</span>
+                        <h3>Masters of Theology (M.Th)</h3>
+                        <p class="institution">University of Edinburgh, Scotland</p>
+                        <p>Thesis: "Environmental issues in church development planning in Uganda"</p>
+                        <p>Joint scholarship from World Council of Churches (WCC) Geneva and Christian Aid (CA) London</p>
+                    </div>
+                </div>
+                
+                <!-- Community Leadership -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">2002 - 2005</span>
+                        <h3>Diploma in Community Leadership and Development (Dip.CLD)</h3>
+                        <p class="institution">Uganda Christian University, Mukono</p>
+                        <p>Leadership training for community development</p>
+                    </div>
+                </div>
+                
+                <!-- Bachelor's Degree -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">2005</span>
+                        <h3>Bachelor of Community Leadership and Development (BCLD)</h3>
+                        <p class="institution">Uganda Christian University, Mukono</p>
+                        <p>First-class honors degree recipient</p>
+                        <p>Received Academic Excellence Award (AEA) from Archbishop Henry Luke Orombi</p>
+                    </div>
+                </div>
+                
+                <!-- PhD -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">2006 - 2008</span>
+                        <h3>PhD in Development and Health Care Management</h3>
+                        <p class="institution">Washington International University, USA</p>
+                        <p>Research: "Examining the Church of Uganda involvement in Health Care Management by application of Community Health Empowerment (CHE) strategy for Holistic Development in Uganda"</p>
+                        <p>Awarded on 15th January 2008</p>
+                    </div>
+                </div>
+                
+                <!-- Private Schools Management -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">2012</span>
+                        <h3>Certificate in Managing Private Schools</h3>
+                        <p class="institution">Makerere University</p>
+                        <p>Postgraduate Diploma in Education (PGDE)</p>
+                        <p>Specialized training in educational administration</p>
+                    </div>
+                </div>
+                
+                <!-- Doctor of Divinity -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">2014 - 2018</span>
+                        <h3>Doctor of Divinity (DD) Degree</h3>
+                        <p class="institution">Master's International University of Divinity, Indiana, USA</p>
+                        <p>Highest theological degree recognizing ministerial accomplishments</p>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Contact End -->
+    </section>
 
-
-        <!-- Footer Start -->
-        <div class="container-fluid footer bg-dark border-bottom-0">
-            <div class="container wow fadeIn" data-wow-delay="0.1s">
-                <div class="row g-0">
-                    <div class="col-12">
-                       <div class="footer-content h-100 pt-6 ps-6 pb-6">
-                            <div class="row g-4 align-items-center">
-                                <div class="col-12 text-center">
-                                    <div class="d-flex justify-content-center">
-                                        <a class="btn btn-light btn-md-square me-3" href=""><i class="fab fa-facebook-f"></i></a>
-                                        <a class="btn btn-light btn-md-square me-3" href=""><i class="fab fa-twitter"></i></a>
-                                        <a class="btn btn-light btn-md-square me-3" href=""><i class="fab fa-instagram"></i></a>
-                                        <a class="btn btn-light btn-md-square me-0" href=""><i class="fab fa-linkedin-in"></i></a>
-                                    </div>
-                                </div>
-                                <div class="col-12 text-center">
-                                    <span class="text-body"><a href="#" class="border-bottom text-white"><i class="fas fa-copyright text-body me-2"></i>Rev. Dr. Mbabazi Ephraim</a>, All right reserved.</span>
-                                </div>
-                                <div class="col-12 text-center text-body">
-                                    <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
-                                    <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
-                                    <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
-                                    Designed By <a class="border-bottom text-white" href="https://htmlcodex.com">Genesis Tech Solutions and Research Center</a>
-
-                                </div>
-                            </div>
-                       </div>        
+    <!-- Ministry Section -->
+    <section class="section ministry" id="ministry">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ministry Journey</h2>
+                <p>30 years of dedicated service in the Church of Uganda</p>
+            </div>
+            <div class="ministry-grid">
+                <div class="ministry-card">
+                    <div class="ministry-img">
+                        <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1392&q=80" alt="Early Ministry">
+                    </div>
+                    <div class="ministry-content">
+                        <h3>Early Ministry (1982-1987)</h3>
+                        <div class="ministry-meta">
+                            <span><i class="far fa-calendar-alt"></i> 1982-1987</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Rwaramba, Uganda</span>
+                        </div>
+                        <p>Prior to joining full-time church service in 1982, Dr. Mbabazi served as a lay pastor and parish treasurer at Rwaramba Church of Uganda up to 1984. From 1985-87, he prepared for ordination at Bishop Barham Divinity College.</p>
+                        <p>Ordained a deacon on 29th November 1987 and a priest on 18th December 1988 in the Church of Uganda at St. Peter's Cathedral, Rugarama, Kabale.</p>
+                    </div>
+                </div>
+                <div class="ministry-card">
+                    <div class="ministry-img">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Pastoral Work">
+                    </div>
+                    <div class="ministry-content">
+                        <h3>Pastoral Ministry (1988-1992)</h3>
+                        <div class="ministry-meta">
+                            <span><i class="far fa-calendar-alt"></i> 1988-1992</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Sooko, Uganda</span>
+                        </div>
+                        <p>Served at Sooko Church of Uganda Parish, carrying out pastoral ministry among rural communities. His ministry focused on holistic development, combining spiritual growth with practical community improvement.</p>
+                        <p>Developed his guiding principle: "It is better to risk loss of truth than chance of error."</p>
+                    </div>
+                </div>
+                <div class="ministry-card">
+                    <div class="ministry-img">
+                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Diocesan Leadership">
+                    </div>
+                    <div class="ministry-content">
+                        <h3>Diocesan Leadership (1997-2007)</h3>
+                        <div class="ministry-meta">
+                            <span><i class="far fa-calendar-alt"></i> 1997-2007</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Muhabura Diocese, Uganda</span>
+                        </div>
+                        <p>Appointed Diocesan Director of Planning and Development of the Church of Uganda, Diocese of Muhabura after returning from the University of Edinburgh. Held this position for ten years, overseeing church development projects.</p>
+                        <p>Administered the orphan program of the Diocese of Muhabura, caring for 500 HIV/AIDS orphans.</p>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Footer End -->
+    </section>
 
+    <!-- Community Work Section -->
+    <section class="section community" id="community">
+        <div class="container">
+            <div class="section-title">
+                <h2>Community Work & Leadership</h2>
+                <p>Commitment to holistic development and vulnerable populations</p>
+            </div>
+            
+            <div class="community-item">
+                <h3>Kisoro School for the Deaf Children</h3>
+                <p>Rev. Dr. Mbabazi is the <span class="highlight">founder director</span> of the Kisoro School for the Deaf Children, which was supported by the Kisoro Trust, Edinburgh, UK. He has held this post for over ten years, providing education and opportunities for deaf children in southwestern Uganda.</p>
+                <p>The pioneers of the school have completed university education, demonstrating the program's success. The ongoing challenge is securing funds for further education for current students, as specialized education remains expensive in Uganda's private system.</p>
+            </div>
+            
+            <div class="community-item">
+                <h3>Peace Education Trust-Uganda (PET-Uganda)</h3>
+                <p>Co-founded and serves as director of <span class="highlight">PEACE EDUCATION TRUST-UGANDA (PET-UGANDA)</span>, a charitable and Community-Based Organization (CBO) committed to supporting the education of the deaf and other most vulnerable children (OVC) in the Kisoro communities.</p>
+                <p>Established in 2003 when the Diocese fell into conflict and division over leadership succession under the influence of local secular politicians, PET-Uganda continues Dr. Mbabazi's mission to assist neediest children. The organization was in partnership with the Kisoro Trust to support the education of deaf children in Kisoro-Uganda.</p>
+                <p>PET-Uganda's mission is to carry out Peace Education and promote the rights of people with disabilities and all disadvantaged groups in society.</p>
+            </div>
+            
+            <div class="community-item">
+                <h3>Other Leadership Roles</h3>
+                <p>Dr. Mbabazi has served in numerous leadership capacities demonstrating his commitment to community development:</p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li><strong>Board Member</strong> of South Western Uganda Network for Aids Service Organizations (SWENASO)</li>
+                    <li><strong>General Secretary/Overseer</strong> of Ubuntu Community Based Organization (UBC-UBUNTU)</li>
+                    <li>Worked with <strong>Twaweza East Africa</strong> through Uwezo Uganda in spearheading literacy and numeracy learning assessment among children aged 6-16 years in Uganda since 2010</li>
+                    <li>Collaborated with <strong>Kick Uganda</strong> in necessary advice and assessment</li>
+                    <li><strong>Member</strong> of the Federation of Non-State Education Institutions (FENEI) of Uganda</li>
+                    <li><strong>Board Chairman</strong> of Love Kisoro Branch</li>
+                    <li><strong>Vice Chairman</strong> of both Uganda Red Cross Governing Board and Mahabura Institute of Business Science and Technology</li>
+                </ul>
+            </div>
+            
+            <div class="community-item">
+                <h3>Research and Publications</h3>
+                <p>Facing the challenge of church conflict over leadership succession in the Church of Uganda and division among Bishops due to the influence of secular politicians, Dr. Mbabazi conducted important research resulting in:</p>
+                <p><span class="highlight">"The Church of Uganda (Anglican) Episcopal Leadership Succession Conflict and its Impact on Mission and Ministry in the Diocese of Muhabura"</span></p>
+                <p>This work reflects his commitment to addressing institutional challenges within the church while maintaining focus on its mission.</p>
+            </div>
+            
+            <div class="community-item">
+                <h3>Professional Contributions</h3>
+                <p>Beyond his pastoral and community work, Dr. Mbabazi has made significant academic contributions:</p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>Lectured in various universities on <strong>Religion, Theology, and Sudanese Studies</strong></li>
+                    <li>Supervised research reports and dissertations for students</li>
+                    <li>Developed an integrated approach combining <strong>Health Care, Education, and Disabilities</strong> in development models for holistic development of grassroots people in rural Uganda</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-primary btn-lg-square back-to-top"><i class="fa fa-arrow-up"></i></a>   
+    <!-- Books Section -->
+    <section class="section books" id="books">
+        <div class="container">
+            <div class="section-title">
+                <h2>Publications & Research</h2>
+                <p>Theological works and academic contributions</p>
+            </div>
+            <div class="book-slider">
+                <div class="book-slide">
+                    <div class="book-cover">
+                        <img src="https://m.media-amazon.com/images/I/41Z2V6Y9QJL._SY425_.jpg" alt="Environmental Issues">
+                    </div>
+                    <div class="book-info">
+                        <h3>Environmental Issues in Church Development</h3>
+                        <p>Master's Thesis at University of Edinburgh examining environmental considerations in church planning in Uganda.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="book-slide">
+                    <div class="book-cover">
+                        <img src="https://m.media-amazon.com/images/I/51O5oY5QZVL._SY425_.jpg" alt="Health Care Management">
+                    </div>
+                    <div class="book-info">
+                        <h3>Church Involvement in Health Care Management</h3>
+                        <p>PhD dissertation applying Community Health Empowerment strategy for holistic development in Uganda.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="book-slide">
+                    <div class="book-cover">
+                        <img src="https://m.media-amazon.com/images/I/51z7ylDn8VL._SY425_.jpg" alt="Leadership Succession">
+                    </div>
+                    <div class="book-info">
+                        <h3>Episcopal Leadership Succession Conflict</h3>
+                        <p>Research on leadership challenges in the Church of Uganda and impact on mission.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="book-slide">
+                    <div class="book-cover">
+                        <img src="https://m.media-amazon.com/images/I/41Z2V6Y9QJL._SY425_.jpg" alt="Community Development">
+                    </div>
+                    <div class="book-info">
+                        <h3>Integrated Community Development Models</h3>
+                        <p>Works on combining health care, education and disability services for holistic development.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="book-slide">
+                    <div class="book-cover">
+                        <img src="https://m.media-amazon.com/images/I/51O5oY5QZVL._SY425_.jpg" alt="Peace Education">
+                    </div>
+                    <div class="book-info">
+                        <h3>Peace Education in Post-Conflict Communities</h3>
+                        <p>Reflections on building peace through education in southwestern Uganda.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="book-slide">
+                    <div class="book-cover">
+                        <img src="https://m.media-amazon.com/images/I/51z7ylDn8VL._SY425_.jpg" alt="Theological Reflections">
+                    </div>
+                    <div class="book-info">
+                        <h3>Theological Reflections on Mercy and Grace</h3>
+                        <p>Exploring the concepts of mercy (Mbabazi) and grace in Christian ministry.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="book-slide">
+                    <div class="book-cover">
+                        <img src="https://m.media-amazon.com/images/I/41Z2V6Y9QJL._SY425_.jpg" alt="Disability Ministry">
+                    </div>
+                    <div class="book-info">
+                        <h3>Ministry to People with Disabilities</h3>
+                        <p>Practical theology of inclusion and empowerment for deaf and disabled communities.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        
-        <!-- JavaScript Libraries -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="lib/wow/wow.min.js"></script>
-        <script src="lib/easing/easing.min.js"></script>
-        <script src="lib/waypoints/waypoints.min.js"></script>
-        <script src="lib/counterup/counterup.min.js"></script>
-        <script src="lib/lightbox/js/lightbox.min.js"></script>
-        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-        
+    <!-- Scriptures Section -->
+    <section class="section scriptures" id="scriptures">
+        <div class="container">
+            <div class="section-title">
+                <h2>Scripture Reflections</h2>
+                <p>Guiding biblical principles from Rev. Dr. Mbabazi's ministry</p>
+            </div>
+            <div class="scripture-slider">
+                <div class="scripture-slide">
+                    <p class="scripture-text">"Love one another as I have loved you."</p>
+                    <p class="scripture-reference">John 15:17 - Dr. Mbabazi's guiding scripture throughout his ministry</p>
+                </div>
+                <div class="scripture-slide">
+                    <p class="scripture-text">"For I was hungry and you gave me something to eat, I was thirsty and you gave me something to drink, I was a stranger and you invited me in, I needed clothes and you clothed me, I was sick and you looked after me, I was in prison and you came to visit me."</p>
+                    <p class="scripture-reference">Matthew 25:35-36 - Foundation for his work with orphans and vulnerable children</p>
+                </div>
+                <div class="scripture-slide">
+                    <p class="scripture-text">"And the King will reply, 'Truly I tell you, whatever you did for one of the least of these brothers and sisters of mine, you did for me.'"</p>
+                    <p class="scripture-reference">Matthew 25:40 - Motivation for serving marginalized communities</p>
+                </div>
+                <div class="scripture-slide">
+                    <p class="scripture-text">"But grow in the grace and knowledge of our Lord and Savior Jesus Christ. To him be glory both now and forever! Amen."</p>
+                    <p class="scripture-reference">2 Peter 3:18 - The call to continual spiritual growth that shaped his educational journey</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <!-- Template Javascript -->
-        <script src="js/main.js"></script>
-    </body>
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p>Connect with Dr. Mbabazi for ministry inquiries or collaborations</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Location</h4>
+                            <p>Kisoro District, Southwestern Uganda</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Email</h4>
+                            <p>revmbabaziephra@yahoo.co.uk</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Phone</h4>
+                            <p> (+256) 772638132</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-church"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Church Affiliation</h4>
+                            <p>Church of Uganda (Anglican)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>About Rev. Dr. Ephraim Mbabazi</h3>
+                    <p>PhD, DD, MTh, BCLD - Clergyman, scholar, and community leader with 30 years of dedicated service in the Church of Uganda and rural development.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#family">Family</a></li>
+                        <li><a href="#education">Education</a></li>
+                        <li><a href="#ministry">Ministry</a></li>
+                        <li><a href="#community">Community Work</a></li>
+                        <li><a href="#books">Publications</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Organizations</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Kisoro School for the Deaf</a></li>
+                        <li><a href="#">Peace Education Trust-Uganda</a></li>
+                        <li><a href="#">Church of Uganda</a></li>
+                        <li><a href="#">Uganda Christian University</a></li>
+                        <li><a href="#">Ubuntu Community Based Organization</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to receive updates on Dr. Mbabazi's ministry, publications, and community initiatives.</p>
+                    <form>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <button type="submit" class="btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Rev. Dr. Ephraim Mbabazi (PhD, DD, MTh, BCLD). All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Scroll animation
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.about-img, .about-text, .timeline-item, .ministry-card, .community-item, .book-slide, .scripture-slide');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.classList.add('animated');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+
+        // Initialize book slider
+        $(document).ready(function(){
+            $('.book-slider').slick({
+                dots: true,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                responsive: [
+                    {
+                        breakpoint: 992,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
+            });
+            
+            // Initialize scripture slider
+            $('.scripture-slider').slick({
+                dots: true,
+                infinite: true,
+                speed: 500,
+                fade: true,
+                cssEase: 'linear',
+                autoplay: true,
+                autoplaySpeed: 5000
+            });
+        });
+    </script>
+</body>
 </html>
